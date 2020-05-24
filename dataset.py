@@ -150,7 +150,9 @@ class RandomCrop(object):
     # input, label = data['input'], data['label']
     # h, w = input.shape[:2]
 
-    h, w = data['data_a'].shape[:2]
+    keys = list(data.keys())
+
+    h, w = data[keys[0]].shape[:2]
     new_h, new_w = self.shape
 
     top = np.random.randint(0, h - new_h)
