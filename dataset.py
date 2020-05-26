@@ -51,7 +51,7 @@ class Dataset(torch.utils.data.Dataset):
 
         data = {}
         if self.data_type == 'a' or self.data_type == 'both':
-            data_a = plt.imread(os.path.join(self.data_dir_a, self.lst_data_a[index]))
+            data_a = plt.imread(os.path.join(self.data_dir_a, self.lst_data_a[index]))[:, :, :3]
 
             if data_a.ndim == 2:
                 data_a = data_a[:, :, np.newaxis]
@@ -63,7 +63,7 @@ class Dataset(torch.utils.data.Dataset):
 
         if self.data_type == 'b' or self.data_type == 'both':
 
-            data_b = plt.imread(os.path.join(self.data_dir_b, self.lst_data_b[index]))
+            data_b = plt.imread(os.path.join(self.data_dir_b, self.lst_data_b[index]))[:, :, :3]
 
             if data_b.ndim == 2:
                 data_b = data_b[:, :, np.newaxis]
