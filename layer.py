@@ -84,7 +84,7 @@ class ResBlock(nn.Module):
         self.resblk = nn.Sequential(*layers)
 
     def forward(self, x):
-        return x + self.resblk(x)
+        return torch.relu(x + self.resblk(x))
 
 
 class PixelUnshuffle(nn.Module):
